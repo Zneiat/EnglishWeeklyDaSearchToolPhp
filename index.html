@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Study Helper - https://github.com/Zneiat</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <meta name="robots" content="nofollow">
+	<meta name="author" content="https://github.com/Zneiat">
+    <link rel="shortcut icon" href="/common/favicon.png" type="image/x-icon">
+</head>
+<!-- NO ZUO NO DIE #(滑稽) -->
+<body>
+    <div class="main-container">
+        <div class="big-head">
+            <h2 class="title">YOU NEED DA ???</h2>
+        </div>
+        <div class="query-form">
+            <div class="item">
+                <label for="checkCode">暗号</label>
+                <input type="text" id="checkCode" autocomplete="off" spellcheck="false" required="required">
+            </div>
+            <div class="item">
+                <label for="how">期数</label>
+                <input type="number" id="how" min="1" value="18" autocomplete="off" spellcheck="false" required="required">
+            </div>
+            <button class="luckly-btn" onclick="iAmLuckly(this)">I AM Luckly</button>
+        </div>
+        <div class="result-content">
+            <textarea id="result" rows="5" readonly="readonly" placeholder="Here is the result."></textarea>
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        function iAmLuckly(obj) {
+            var checkCode = $('#checkCode'),
+                how = $('#how'),
+                result = $('#result'),
+                btn = $(obj),
+                btnText = $(obj).text();
+            if($.trim(checkCode.val())==''){
+                checkCode.focus();
+                return;
+            }
+            if($.trim(how.val())==''){
+                how.focus();
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: "./functions.php",
+                dataType: "json",
+                timeout: 0,
+                data: {'op':'weekly','checkCode':checkCode.val(),'how':how.val()},
+                beforeSend: function(){
+                    btn.text('加载中...');
+                },
+                success: function(json){
+                    if(json.success) {
+                        result.text(json.content);
+                    }else{
+                        result.text(json.msg);
+                    }
+                    btn.text(btnText);
+                },
+                error: function () {
+                    result.text('请求失败');
+                    btn.text(btnText);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

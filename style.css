@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+/**
+ * EnglishWeeklyDaSearchTool
+ * Author: https://github.com/Zneiat
+ */
+html,body {
+    margin: 0;
+    padding: 15px 0;
+    background: #49b9f5;
+    color: rgba(0, 0, 0, 0.6);
+    font-family: "Source Code Pro","Microsoft JhengHei","Helvitica Neue",Helvitica,Arial,"Hiragino Sans GB",sans-serif;
+    line-height: 1.4;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+
+input, button, select, textarea {
+    border-radius: 1px;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+.main-container {
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.big-head {
+    padding: 10px 20px;
+    background-color: #2196f3;
+    -webkit-box-shadow: 0 1px 5px rgba(84, 84, 84, 0.2);
+    box-shadow: 0 1px 5px rgba(84, 84, 84, 0.2);
+    color: rgb(255,255,255);
+}
+
+.big-head .title {
+    margin: 0;
+    font-weight: normal;
+}
+
+.query-form .item input:focus ,input:focus, button:focus, select:focus, textarea:focus {
+    outline: none;
+    border-bottom: 1px solid #4285f4;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    color: inherit;
+    font: inherit;
+}
+
+.query-form {
+    padding: 30px 30px;
+}
+
+.query-form .item {
+    margin-bottom: 35px;
+}
+
+.query-form .item label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #a3a9b7;
+}
+
+.query-form .item input {
+    padding: 6px 12px;
+    width: 100%;
+    height: 34px;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #ccc;
+    border-left: 0;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.query-form button {
+    padding: 10px 30px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: #2196f3;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.12);
+    box-shadow: 0 1px 3px rgba(0,0,0,.12);
+    color: #FFF;
+    font-size: 13.3333px;
+    cursor: pointer;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.query-form button:focus {
+    background: #2feab7;
+}
+
+.result-content {
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+
+.result-content textarea {
+    padding: 12px;
+    max-width: 100%;
+    max-height: 200px;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #dadada;
+    resize: none;
+}
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+    html, body {
+        padding: 0;
+        background: #FFF;
+    }
+
+    .main-container {
+        margin-top: 0;
+        padding-right: 0;
+        padding-left: 0;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .query-form button {
+        display: block;
+        width: 100%;
+        box-shadow: none !important;
+    }
+
+    .query-form button:focus {
+        background: #2196F3 !important;
+    }
+
+    .query-form .item input:focus ,input:focus, button:focus, select:focus, textarea:focus {
+        outline: none;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .query-form {
+        padding: 20px 10px !important;
+    }
+
+    .result-content {
+        padding-right: 10px !important;
+        padding-bottom: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    .query-form .item {
+        margin-bottom: 15px !important;
+    }
+
+    .query-form .item input {
+        border: 1px solid #ccc !important;
+    }
+}
+
+/* pc */
+@media (min-width: 1200px) {
+    .main-container {
+        width: 760px;
+    }
+}
+
+/* pad */
+@media (min-width: 992px) {
+    .main-container {
+        width: 760px;
+    }
+}
